@@ -1,6 +1,6 @@
 import unittest
 from selenium import webdriver
-from selenium.webdriver.edge.options import Options  # Импортируем опции для Edge
+from selenium.webdriver.edge.options import Options  
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -8,17 +8,17 @@ from selenium.webdriver.support import expected_conditions as EC
 import logging
 from selenium.webdriver.remote.remote_connection import LOGGER
 
-# Устанавливаем уровень логирования Selenium на WARNING, чтобы скрыть INFO-сообщения
+
 LOGGER.setLevel(logging.WARNING)
 
 class TestSSTUWebsite(unittest.TestCase):
 
     def setUp(self):
         options = Options()
-        options.use_chromium = True  # Используем движок Chromium для совместимости
+        options.use_chromium = True 
         options.add_argument("--headless")
         options.add_argument('--log-level=3')
-        self.driver = webdriver.Edge(options=options)  # Создаем экземпляр драйвера Edge
+        self.driver = webdriver.Edge(options=options) 
         self.addCleanup(self.driver.quit)
 #
     def test_page_title(self):
